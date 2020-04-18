@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-7 m-auto">
+      <h1>Classes</h1>
+    </div>
+    <div class="col-2 m-auto d-flex text-right">
+      <select class="form-control d-flex" name="limit" id="limit" (change)="onLimitChange($event)">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div class="col-3 m-auto text-right">
+      <a class="btn btn-lg btn-success shadow rounded text-dark" [routerLink]="['/classes', 'new']">New Room</a>
+    </div>
+  </div>
+
+  <hr [style.background-color]="'black'">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-5 m-auto">
+      <app-rooms></app-rooms>
+    </div>
+    <div class="col-5 m-auto">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

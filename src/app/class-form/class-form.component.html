@@ -1,0 +1,32 @@
+<form #newClassForm="ngForm" (ngSubmit)="onSubmit(newClassForm)" class="bg-primary p-2 border">
+  <div class="form-row d-flex justify-content-center">
+    <div class="form-group col-md-10">
+      <label for="id">number of students</label>
+      <input type="number" class="form-control" [(ngModel)]="class.number" id="number" name="number" required maxlength="2" #numberRef="ngModel">
+      <div *ngIf="numberRef.touched && numberRef.hasError('required')" class="alert alert-danger text-center d-flex m-1 p-auto" >
+        Number is required
+      </div>
+      <div *ngIf="numberRef.touched && numberRef.hasError('maxlength')" class="alert alert-danger text-center d-flex m-1 p-auto" >
+        Number is out of range
+      </div>
+    </div>
+    <div class="form-group col-md-10">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" [(ngModel)]="class.name" id="name" name="name" required
+        #nameRef="ngModel">
+      <div *ngIf="nameRef.touched && nameRef.invalid" class="alert alert-danger text-center d-flex m-1 p-auto">
+        Name is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="class.available" id="available"
+        name="available">
+      <label class="form-check-label" for="available">
+        Available
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-warning shadow" [disabled]="newClassForm.invalid">Save</button>
+</form>

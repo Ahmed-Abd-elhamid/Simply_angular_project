@@ -1,0 +1,30 @@
+<h3><b>Available Rooms</b></h3>
+
+
+  <div class="col-12">
+<div>
+  <app-rooms-list *ngFor="let room of rooms" [room]="room" (RmClick)="onRoomClick($event)"></app-rooms-list>
+</div>
+
+<p *ngIf="room; else Noselect" [ngClass]="{'bg-danger': !room.available, 'bg-success': room.available }">{{room.name}} Room is Selected </p>
+
+<ng-template #Noselect >No room selected</ng-template>
+
+</div>
+
+<hr>
+<div class="row">
+
+  <div class="col-12 mb-2 text-dark text-center justify-content-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li *ngFor="let page of pages; index as i" class="page-item bg-dark"
+        [ngClass]="{active: currentPage == i + 1 }"
+          [routerLink]="['/classes']" [queryParams]="{page: i+1}" queryParamsHandling='merge'>
+          <a class="page-link">
+            {{i + 1}}
+          </a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

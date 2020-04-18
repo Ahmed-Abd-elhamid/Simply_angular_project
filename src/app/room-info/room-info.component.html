@@ -1,0 +1,24 @@
+<h3><b>Room Info</b></h3>
+<table class="table" style="heigth:300px;">
+  <thead class="thead-dark">
+    <tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Room</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="room" class="bg-white" style="opacity:0.7;">
+    <tr>
+      <th scope="row">students</th>
+      <td >{{room.number}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Name</th>
+      <td >{{room.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Available</th>
+      <td [ngClass]="{'bg-danger': !room.available, 'bg-success': room.available }">{{room.name}}</td>
+    </tr>
+  </tbody>
+</table>
